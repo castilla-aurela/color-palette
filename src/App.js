@@ -68,14 +68,14 @@ export default function App() {
         const payload = { name, value };
         const docRef = await addDoc(collectionRef, payload);
         //console.log("the new ID is: " + docRef.id);
-        toast("the new ID is: " + docRef.id, {type:"success", autoClose:3000})
+        toast("the color : " + name + " has been created", {type:"success", autoClose:3000})
         console.log(name, value);
       }else{
-        toast("field cannot be blank",{type:"error", autoclose:4000})
+        toast("field cannot be blank",{type:"error", autoclose:3000})
       }
 
     } else {
-      toast("field cannot be blank",{type:"error", autoclose:4000})
+      toast("field cannot be blank",{type:"error", autoclose:3000})
     };
     /*
     const name = prompt("Enter a color name");
@@ -113,6 +113,7 @@ export default function App() {
     if (window.confirm("are you sure?")) {
       console.log(id);
       await deleteDoc(doc(db, "colors", id));
+      toast("Color has been deleted",{type:"success", autoclose:3000})
     }
   };
 
